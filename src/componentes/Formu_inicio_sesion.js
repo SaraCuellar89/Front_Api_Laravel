@@ -13,7 +13,7 @@ const Formu_inicio_sesion = () => {
       e.preventDefault();
   
       try {
-        const response = await fetch('http://localhost:8000/api/olympics/login', {
+        const response = await fetch('https://laravel-backend-jfdx.onrender.com/api/olympics/login', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ username, password }),
