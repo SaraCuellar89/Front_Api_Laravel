@@ -12,7 +12,7 @@ const Cuadro_eventos = () => {
     const navigate = useNavigate();
   
     useEffect(() => {
-      fetch("http://localhost:8000/api/olympics/events/list")
+      fetch("https://laravel-backend-jfdx.onrender.com/api/olympics/events/list")
         .then(res => res.json())
         .then(data => {
           const ordenados = data.sort((a, b) => new Date(a.date) - new Date(b.date));
@@ -23,7 +23,7 @@ const Cuadro_eventos = () => {
   
     const handleLogout = async () => {
       try {
-        await fetch('http://localhost:8000/api/olympics/logout', {
+        await fetch('https://laravel-backend-jfdx.onrender.com/api/olympics/logout', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
         });
