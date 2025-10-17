@@ -19,7 +19,7 @@ const Cuadro_participantes = () => {
 
     // Cargar participantes del evento
     useEffect(() => {
-        fetch(`http://localhost:8000/api/olympics/participants/list/${eventId}`)
+        fetch(`https://laravel-backend-jfdx.onrender.com/api/olympics/participants/list/${eventId}`)
             .then(res => {
                 if (!res.ok) throw new Error("No se pudo obtener participantes");
                 return res.json();
@@ -30,7 +30,7 @@ const Cuadro_participantes = () => {
 
     // Obtener nombre del evento (opcional)
     useEffect(() => {
-        fetch("http://localhost:8000/api/olympics/events/list")
+        fetch("https://laravel-backend-jfdx.onrender.com/api/olympics/events/list")
             .then(res => res.json())
             .then(events => {
                 const event = events.find(e => e.id === parseInt(eventId));
@@ -43,7 +43,7 @@ const Cuadro_participantes = () => {
         if (!window.confirm("¿Eliminar este participante?")) return;
 
         try {
-            const res = await fetch(`http://localhost:8000/api/olympics/participants/delete/${id}`, {
+            const res = await fetch(`https://laravel-backend-jfdx.onrender.com/api/olympics/participants/delete/${id}`, {
                 method: 'DELETE'
             });
 
@@ -60,7 +60,7 @@ const Cuadro_participantes = () => {
 
     const handleLogout = async () => {
       try {
-        await fetch('http://localhost:8000/api/olympics/logout', {
+        await fetch('https://laravel-backend-jfdx.onrender.com/api/olympics/logout', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
         });
