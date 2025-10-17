@@ -16,7 +16,7 @@ const Formu_crear_evento = () => {
 
     // Traer las sedes al cargar el componente
     useEffect(() => {
-        fetch('http://localhost:8000/api/venues')
+        fetch('https://laravel-backend-jfdx.onrender.com/api/venues')
             .then(res => res.json())
             .then(data => setVenues(data))
             .catch(() => setError('Error al cargar las sedes'));
@@ -26,7 +26,7 @@ const Formu_crear_evento = () => {
         e.preventDefault();
 
         try {
-            const response = await fetch('http://localhost:8000/api/olympics/events/create', {
+            const response = await fetch('https://laravel-backend-jfdx.onrender.com/api/olympics/events/create', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name, date, venue_id: venueId })
@@ -44,7 +44,7 @@ const Formu_crear_evento = () => {
 
     const handleLogout = async () => {
       try {
-        await fetch('http://localhost:8000/api/olympics/logout', {
+        await fetch('https://laravel-backend-jfdx.onrender.com/api/olympics/logout', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
         });
