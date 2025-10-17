@@ -16,7 +16,7 @@ const Formu_editar_evento = () => {
 
     // Cargar datos del evento actual
     useEffect(() => {
-        fetch(`http://localhost:8000/api/olympics/events/list`)
+        fetch(`https://laravel-backend-jfdx.onrender.com/api/olympics/events/list`)
             .then(res => res.json())
             .then(data => {
                 const evento = data.find(e => e.id === parseInt(id));
@@ -32,7 +32,7 @@ const Formu_editar_evento = () => {
 
     // Cargar sedes disponibles
     useEffect(() => {
-        fetch(`http://localhost:8000/api/venues`)
+        fetch(`https://laravel-backend-jfdx.onrender.com/api/venues`)
             .then(res => res.json())
             .then(data => setVenues(data))
             .catch(() => setVenues([]));
@@ -42,7 +42,7 @@ const Formu_editar_evento = () => {
         e.preventDefault();
 
         try {
-            const response = await fetch(`http://localhost:8000/api/olympics/events/edit/${id}`, {
+            const response = await fetch(`https://laravel-backend-jfdx.onrender.com/api/olympics/events/edit/${id}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name, date, venue_id: venueId }),
@@ -61,7 +61,7 @@ const Formu_editar_evento = () => {
 
     const handleLogout = async () => {
       try {
-        await fetch('http://localhost:8000/api/olympics/logout', {
+        await fetch('https://laravel-backend-jfdx.onrender.com/api/olympics/logout', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
         });
