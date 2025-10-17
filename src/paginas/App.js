@@ -11,7 +11,7 @@ const App = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/olympics/login" element={<Login/>}/>
+                <Route path="/" element={<Login/>}/>
                 <Route path="/olympics/events/list" element={<Gestion_eventos/>}/>
                 <Route path="/olympics/events/create" element={<Crear_evento/>}/>
                 <Route path="/olympics/participants/create" element={<Crear_participante/>}/>

@@ -48,7 +48,7 @@ const Formu_crear_evento = () => {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
         });
-        navigate('/olympics/login');
+        navigate('/');
       } catch (err) {
         console.error('Error cerrando sesión', err);
       }
