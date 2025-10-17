@@ -15,7 +15,7 @@ const Formu_crear_participante = () => {
 
     // Obtener eventos desde la API
     useEffect(() => {
-        fetch('http://localhost:8000/api/olympics/events/list')
+        fetch('https://laravel-backend-jfdx.onrender.com/api/olympics/events/list')
             .then(res => res.json())
             .then(data => setEvents(data))
             .catch(err => console.error('Error cargando eventos', err));
@@ -27,7 +27,7 @@ const Formu_crear_participante = () => {
         const payload = { fullname, email, phone, event_id: eventId };
 
         try {
-            const response = await fetch('http://localhost:8000/api/olympics/participants/create', {
+            const response = await fetch('https://laravel-backend-jfdx.onrender.com/api/olympics/participants/create', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
@@ -45,7 +45,7 @@ const Formu_crear_participante = () => {
 
     const handleLogout = async () => {
       try {
-        await fetch('http://localhost:8000/api/olympics/logout', {
+        await fetch('https://laravel-backend-jfdx.onrender.com/api/olympics/logout', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
         });
